@@ -13,7 +13,7 @@ LIMIT 10;
 Paste your SQL statement below:
 SELECT ProductName, Price 
 FROM Products
-WHERE Price < 10;
+WHERE Price < 20;
 
 3. Retrieve all employees whose last name starts with C.  Paste your SQL statement below:
 SELECT FirstName, LastName
@@ -32,10 +32,10 @@ WHERE CustomerName LIKE "A%";
 5. Retrieve the list of customers, ordered by customer name, along with their order IDs.  Note
 that not every customer has an order, but be sure that you include those customers without orders
 in the results of the query.  Paste your SQL statement below.
-SELECT OrderID, CustomerName 
-FROM Customers 
-JOIN Orders
-ON OrderID = Orders.OrderID;
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
 
 6. Retrieve the list of customer names for customers that have no orders.  There are two ways to do this
 One is to use a subquery, as follows:
